@@ -45,7 +45,7 @@
     <div class="main--content">
         <div class="header--wrapper">
             <div class="header--title">
-                <h2>Dashboard</h2>
+                <h2>{% block menuTitle %}{% endblock %}</h2>
             </div>
             <div class="user--info">
                 <div class="search--box">
@@ -55,6 +55,8 @@
                 <img src="{{ asset('assets/img/user.png') }}" alt="">
             </div>
         </div>
+
+        {% block content %}{% endblock %}
     </div>
 
 

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block menuTitle %}Dashboard{% endblock %}
+
+{% block content %}
+    <div class="card--container">
+        <h3 class="main--title">Statictics</h3>
+        <div class="card--wrapper">
+            <div class="statistic--card light-red">
+                <div class="card--header">
+                    <div class="vehicle-card">
+                        <span class="vehicle-card-title">Total Vehicle</span>
+                        <span class="vehicle-card-count">25</span>
+                    </div>
+                    <i class="fa-solid fa-blog card-icon"></i>
+                </div>
+            </div>
+            <div class="statistic--card light-purple">
+                <div class="card--header">
+                    <div class="customer-card">
+                        <span class="customer-card-title">Total Customer</span>
+                        <span class="customer-card-count">11</span>
+                    </div>
+                    <i class="fa-solid fa-list card-icon dark-purple"></i>
+                </div>
+            </div>
+        </div>
+        <div class="tabular--wrapper">
+            <h3 class="main--title">Last Vehicles</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Customer Fullname</th>
+                        <th>Vehicle Brand</th>
+                        <th>Vehicle Model</th>
+                        <th>Problem</th>
+                        <th>Registration Date</th>
+                        <th>Updated At</th>
+                        <th>Action</th>
+                    </tr>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Onur Ömer ŞAHİN</td>
+                        <td>Audi</td>
+                        <td>A4</td>
+                        <td>Air conditioner is broken</td>
+                        <td>2023-08-09</td>
+                        <td>2023-08-09</td>
+                        <td><button>Edit</button></td>
+                    </tr>
+                    </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

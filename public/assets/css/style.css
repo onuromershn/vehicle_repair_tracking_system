@@ -159,3 +159,179 @@ body{
 .search--box i:hover{
     transform: scale(1.2);
 }
+
+.card--container{
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.card--wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.main--title{
+    color: rgba(113,99,186,255);
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.statistic--card{
+    background: rgb(229,223,223);
+    border-radius: 10px;
+    padding: 1.2rem;
+    width: 290px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s ease-in-out;
+}
+
+.statistic--card:hover{
+    transform: translateY(-5px);
+}
+
+.card--header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.vehicle-card{
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicle-card-title{
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.vehicle-card-count{
+    font-size: 30px;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 600;
+}
+
+.card-icon{
+    color: #fff;
+    padding: 1rem;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    background: red;
+}
+
+.customer-card{
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-card-title{
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.customer-card-count{
+    font-size: 30px;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 600;
+}
+
+
+/* color css */
+.light-red{
+    background: rgb(255,114,118);
+}
+
+.light-purple{
+    background: rgb(203, 195, 227);
+}
+
+.light-green{
+    background: rgb(144, 238, 144);
+}
+
+.light-blue{
+    background: rgb(173,216,230);
+}
+
+.light-gray{
+    background: rgb(192,192,192);
+}
+
+.dark-red{
+    background: red;
+}
+
+.dark-purple{
+    background: purple;
+}
+
+.dark-green{
+    background: green;
+}
+
+.dark-blue{
+    background: blue;
+}
+
+.dark-gray{
+    background: gray;
+}
+
+/* tabular--section */
+.tabular--wrapper{
+    background: #fff;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.table-container{
+    width: 100%;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead{
+    background: rgba(113,99,186,255);
+    collapse: #fff;
+}
+
+th{
+    padding: 15px;
+    text-align: left;
+}
+
+tbody{
+    background: #f2f2f2;
+}
+
+td{
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+tr:nth-child(even){
+    background: #fff;
+}
+
+
+.table-container button{
+    background: none;
+    cursor: pointer;
+    border: none;
+    margin: 0 8px;
+}
