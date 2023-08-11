@@ -10,53 +10,66 @@
 
     <!--Font Awesome Cdn Link-->
     <script src="https://kit.fontawesome.com/8d9a94d7ba.js" crossorigin="anonymous"></script>
-    <title>Car Repair Tracking</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-
-    <div class="sidebar">
-        <div class="logo"></div>
-        <ul class="menu">
-            <li>
-                <a href="#">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <i class="fa-solid fa-car"></i>
-                    <span>Vehicles</span>
-                    <ul class="submenu">
-                        <li><a href="#">All Vehicles</a></li>
-                        <li><a href="#">Add Vehicle</a></li>
-                    </ul>
-                </a>
-            </li>
-            <li class="logout">
-                <a href="#">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    <span>Logout</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="main--content">
-        <div class="header--wrapper">
-            <div class="header--title">
-                <h2>{% block menuTitle %}{% endblock %}</h2>
+    <div class="container">
+        <div class="sidebar active">
+            <div class="menu-btn">
+                <i class="fa-solid fa-angle-left"></i>
             </div>
-            <div class="user--info">
-                <div class="search--box">
-                    <i class="fa-solid fa-search"></i>
-                    <input type="text" placeholder="Search">
+            <div class="head">
+                <div class="company-img">
+                    <img src="{{ asset('assets/img/vehicle_repair.jpg') }}" alt="Company Image">
                 </div>
-                <img src="{{ asset('assets/img/user.png') }}" alt="">
+                <div class="company-details">
+                    <p class="title">Vehicle Repair</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="icon fa fa-tachometer"></i>
+                                <span class="text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon fa-solid fa-car"></i>
+                                <span class="text">Vehicle</span>
+                                <i class="arrow fa-solid fa-angle-down"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#">
+                                        <span class="text">All Vehicles</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Add Vehicle</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu">
+                <p class="title">Account</p>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="icon fa-solid fa-arrow-right-from-bracket"></i>
+                            <span class="text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        {% block content %}{% endblock %}
     </div>
 
 
