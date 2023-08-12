@@ -7,73 +7,83 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('assets/img/car-repair.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
     <!--Font Awesome Cdn Link-->
     <script src="https://kit.fontawesome.com/8d9a94d7ba.js" crossorigin="anonymous"></script>
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar active">
-            <div class="menu-btn">
-                <i class="fa-solid fa-angle-left"></i>
-            </div>
-            <div class="head">
-                <div class="company-img">
-                    <img src="{{ asset('assets/img/vehicle_repair.jpg') }}" alt="Company Image">
-                </div>
-                <div class="company-details">
-                    <p class="title">Vehicle Repair</p>
-                </div>
-            </div>
-            <div class="nav">
-                <div class="menu">
-                    <p class="title">Main</p>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i class="icon fa fa-tachometer"></i>
-                                <span class="text">Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon fa-solid fa-car"></i>
-                                <span class="text">Vehicle</span>
-                                <i class="arrow fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="#">
-                                        <span class="text">All Vehicles</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="text">Add Vehicle</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-white" id="sidebar-wrapper">
+        <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+                    class="fas fa-car me-2"></i>VEHICLE REPAIR</div>
+        <div class="list-group list-group-flush my-3">
+
+            <a href="{{ path("app_dashboard") }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa fa-tachometer me-2 mt-5"></i>Dashboard</a>
+            <ul class="list-group-item list-group-item-action navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-car me-2"></i>Vehicles
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ path("app_vehicles") }}">All Vehicles</a></li>
+                        <li><a class="dropdown-item" href="{{ path("app_vehicle_add") }}">Add Vehicle</a></li>
                     </ul>
-                </div>
+                </li>
+            </ul>
+            <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i class="fas fa-power-off me-2"></i>Logout</a>
+
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                <h2 class="fs-2 m-0">{% block menuTitle %}{% endblock %}</h2>
             </div>
-            <div class="menu">
-                <p class="title">Account</p>
-                <ul>
-                    <li>
-                        <a href="#">
-                            <i class="icon fa-solid fa-arrow-right-from-bracket"></i>
-                            <span class="text">Logout</span>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-2"></i>Admin
                         </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
-        </div>
-    </div>
+        </nav>
 
+        {% block content %}{% endblock %}
+    </div>
+    <!-- /#page-content-wrapper -->
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
+<script>
+    var el = document.getElementById("wrapper");
+    var toggleButton = document.getElementById("menu-toggle");
+
+    toggleButton.onclick = function () {
+        el.classList.toggle("toggled");
+    };
+</script>
 </body>
 </html>

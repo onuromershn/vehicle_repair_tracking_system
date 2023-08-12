@@ -1,10 +1,109 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Add Vehicle{% endblock %}
+{% block title %}Add Vehicle Repair{% endblock %}
 
-{% block menuTitle %}Add Vehicle{% endblock %}
+{% block menuTitle %}Add Vehicle Repair{% endblock %}
 
 {% block content %}
+    <!-- Page Content -->
+    <div class="container-fluid px-4">
+        <div class="row my-5">
+            <h3 class="fs-4 mb-3">Recent Repair</h3>
+            <form>
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example1">Customer First name</label>
+                            <input type="text" id="form6Example1" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example2">Customer Last name</label>
+                            <input type="text" id="form6Example2" class="form-control" />
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Number input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form6Example6">Customer's Phone</label>
+                    <input type="number" id="form6Example6" class="form-control" />
+                </div>
+
+                <!-- Text input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form6Example4">Customer's Address</label>
+                    <input type="text" id="form6Example4" class="form-control" />
+                </div>
+
+                <!-- Message input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form6Example7">Vehicle Problem</label>
+                    <textarea class="form-control" id="form6Example7" rows="3"></textarea>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_need">Please chooser car brand</label>
+                            <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                                <option value="" selected disabled>--Select Your Issue--</option>
+                                <option >Request Invoice for order</option>
+                                <option >Request order status</option>
+                                <option >Haven't received cashback yet</option>
+                                <option >Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_need">Please chooser car model</label>
+                            <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                                <option value="" selected disabled>--Select Your Issue--</option>
+                                <option >Request Invoice for order</option>
+                                <option >Request order status</option>
+                                <option >Haven't received cashback yet</option>
+                                <option >Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_need">Please chooser expert</label>
+                            <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                                <option >Request Invoice for order</option>
+                                <option >Request order status</option>
+                                <option >Haven't received cashback yet</option>
+                                <option >Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_need">Please chooser clock</label>
+                            <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                                <option >Request Invoice for order</option>
+                                <option >Request order status</option>
+                                <option >Haven't received cashback yet</option>
+                                <option >Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-block mb-4 ">Save</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
 {% endblock %}
 
