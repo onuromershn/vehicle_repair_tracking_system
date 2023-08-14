@@ -38,11 +38,11 @@ class VehicleService
     /**
      * @return Response
      */
-    public function getVehicleModels(): Response
+    public function getVehicleModels(int $makeId): Response
     {
         $curl =  curl_init();
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://car-api2.p.rapidapi.com/api/models?year=2020",
+            CURLOPT_URL => "https://car-api2.p.rapidapi.com/api/models?year=2020&make_id=$makeId",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -59,7 +59,6 @@ class VehicleService
         $err = curl_error($curl);
 
         $response = json_decode($response)->data;
-
         return  new JsonResponse($response);
     }
 }

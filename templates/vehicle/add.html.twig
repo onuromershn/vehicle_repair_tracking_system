@@ -66,6 +66,7 @@
                         <div class="form-group">
                             <label for="form_need">Please Choose Brand</label>
                             <select id="car_brand" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                                <option value="0">Select your brand</option>
                                 {% for key,value in brands %}
                                     <option value="{{ value.id }}">{{ value.name }}</option>
                                 {% endfor %}
@@ -75,12 +76,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="form_need">Please Choose Model</label>
-                            <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
-                                <option >Model-1</option>>
-                                <option >Model-2</option>>
-                                <option >Model-3</option>>
-                                <option >Model-4</option>>
-                                <option >Model-5</option>>
+                            <select id="car_model" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                                <option selected disabled>Please Choose Brand</option>
                             </select>
                         </div>
                     </div>
