@@ -41,6 +41,7 @@ class VehicleController extends AbstractController
         return $this->render('vehicle/add.html.twig', [
             'controller_name' => 'VehicleController',
             'brands'=> json_decode($vehicleService->getVehicleBrands()->getContent()),
+            'experts'=> $vehicleService->experts()
         ]);
     }
 

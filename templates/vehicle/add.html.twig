@@ -58,7 +58,7 @@
                 <!-- Message input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form6Example7">Vehicle Problem</label>
-                    <textarea class="form-control" id="form6Example7" rows="3"></textarea>
+                    <textarea class="form-control" id="form6Example7" rows="2"></textarea>
                 </div>
 
                 <div class="row mb-4">
@@ -77,7 +77,7 @@
                         <div class="form-group">
                             <label for="form_need">Please Choose Model</label>
                             <select id="car_model" name="need" class="form-control" required="required" data-error="Please specify your need.">
-                                <option selected disabled>Please Choose Brand</option>
+                                <option value="" disabled selected hidden>Please select the vehicle brand first</option>
                             </select>
                         </div>
                     </div>
@@ -88,24 +88,20 @@
                         <div class="form-group">
                             <label for="form_need">Please Choose Expert</label>
                             <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
-                                <option >Expert A</option>
-                                <option >Expert B</option>
-                                <option >Expert C</option>
+                                {% for expert in experts %}
+                                <option value="{{ expert }}">{{ expert }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="form_need">Repair Date</label>
-                            <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
-                                <option >Request Invoice for order</option>
-                                <option >Request order status</option>
-                                <option >Haven't received cashback yet</option>
-                                <option >Other</option>
-                            </select>
+                            <input id="dateTimePicker" class="form-control" />
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Submit button -->
                 <div class="d-grid">
@@ -117,4 +113,6 @@
     </div>
     <!-- /#page-content-wrapper -->
 {% endblock %}
+
+
 

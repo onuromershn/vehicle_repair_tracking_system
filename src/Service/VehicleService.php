@@ -61,4 +61,11 @@ class VehicleService
         $response = json_decode($response)->data;
         return  new JsonResponse($response);
     }
+
+    public function experts()
+    {
+        $experts = ["Expert-A","Expert-B","Expert-C","Expert-C","Expert-D"];
+
+        return $experts;
+    }
 }
