@@ -27,11 +27,12 @@
                     </tr>
                     </thead>
                     <tbody>
+                    {% for servicesInfo in servicesInfos %}
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Onur Ömer</td>
-                        <td>ŞAHİN</td>
-                        <td>+905555555555</td>
+                        <th scope="row">{{ servicesInfo.id }}</th>
+                        <td>{{ servicesInfo.getCustomer.getFirstname }}</td>
+                        <td>{{ servicesInfo.getCustomer.getSurname }}</td>
+                        <td>{{ servicesInfo.getCustomer.getPhoneNumber }}</td>
                         <td>Audi</td>
                         <td>A7</td>
                         <td>Ali Usta</td>
@@ -41,6 +42,7 @@
                         <td>12.08.2023</td>
                         <td>Edit|Delete</td>
                     </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>

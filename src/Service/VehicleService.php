@@ -68,4 +68,11 @@ class VehicleService
 
         return $experts;
     }
+
+    public function vehicleStatus()
+    {
+        $vehicleStatus = ["To Do","In Progress","Done"];
+
+        return $vehicleStatus;
+    }
 }

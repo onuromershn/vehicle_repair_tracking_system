@@ -21,28 +21,14 @@ class ServiceInfoRepository extends ServiceEntityRepository
         parent::__construct($registry, ServiceInfo::class);
     }
 
-//    /**
-//     * @return ServiceInfo[] Returns an array of ServiceInfo objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('s.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function getServiceInfo()
+    {
+        $qb = $this->_em->createQueryBuilder();
 
-//    public function findOneBySomeField($value): ?ServiceInfo
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        return $qb->select('si')
+            ->from(ServiceInfo::class,'si')
+            ->orderBy('si.id','DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }
