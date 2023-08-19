@@ -49,20 +49,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Onur Ömer</td>
-                        <td>ŞAHİN</td>
-                        <td>+905555555555</td>
-                        <td>Audi</td>
-                        <td>A7</td>
-                        <td>Ali Usta</td>
-                        <td>Done</td>
-                        <td>Air conditionar is broken</td>
-                        <td>11.08.2023</td>
-                        <td>12.08.2023</td>
-                        <td>Edit|Delete</td>
-                    </tr>
+                    {% for servicesInfo in servicesInfos %}
+                        <tr>
+                            <th scope="row">{{ servicesInfo.id }}</th>
+                            <td>{{ servicesInfo.getCustomer.firstname }}</td>
+                            <td>{{ servicesInfo.getCustomer.surname }}</td>
+                            <td>{{ servicesInfo.getCustomer.phoneNumber }}</td>
+                            <td>{{ servicesInfo.vehicleBrand }}</td>
+                            <td>{{ servicesInfo.vehicleModel }}</td>
+                            <td>{{ servicesInfo.expert }}</td>
+                            <td>{{ servicesInfo.status }}</td>
+                            <td>{{ servicesInfo.vehicleProblem }}</td>
+                            <td>{{ servicesInfo.repairDate | date ('d M Y') }}</td>
+                            <td>{{ servicesInfo.updatedAt | date ('d M Y') }}</td>
+                            <td>Edit|Delete</td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>

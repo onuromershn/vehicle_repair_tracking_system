@@ -64,7 +64,7 @@ class VehicleService
 
     public function experts()
     {
-        $experts = ["Expert-A","Expert-B","Expert-C","Expert-C","Expert-D"];
+        $experts = ["Expert-A","Expert-B","Expert-C","Expert-D","Expert-E"];
 
         return $experts;
     }

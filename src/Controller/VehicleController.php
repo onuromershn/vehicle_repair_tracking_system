@@ -4,17 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Customer;
 use App\Entity\ServiceInfo;
-use App\Repository\CustomerRepository;
 use App\Repository\ServiceInfoRepository;
 use App\Service\VehicleService;
 use Doctrine\ORM\EntityManagerInterface;
-use phpDocumentor\Reflection\Types\This;
-use Symfony\Bridge\Monolog\Logger;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\env;
 
 class VehicleController extends AbstractController
 {
@@ -49,6 +45,7 @@ class VehicleController extends AbstractController
         }
 
         if ($request->getMethod() === Request::METHOD_POST){
+            $brandName = $request->request->get('brandName');
 
             $customer = new Customer();
             $customer->setFirstname($request->request->get('firstname'));
@@ -64,7 +61,7 @@ class VehicleController extends AbstractController
             $serviceInfo->setStatus($request->request->get('status'));
             $serviceInfo->setCustomer($customer);
             $serviceInfo->setVehicleProblem($request->request->get('vehicleProblem'));
-            $serviceInfo->setVehicleBrand($request->request->get('brand'));
+            $serviceInfo->setVehicleBrand($brandName);
             $serviceInfo->setVehicleModel($request->request->get('model'));
             $serviceInfo->setExpert($request->request->get('expert'));
             $serviceInfo->setRepairDate(new \DateTime($request->request->get('repairDate')));
