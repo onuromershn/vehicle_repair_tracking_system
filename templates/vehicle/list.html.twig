@@ -23,7 +23,8 @@
                         <th scope="col">Vehicle Problem</th>
                         <th scope="col">Repair Date</th>
                         <th scope="col">Updated Date</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -40,7 +41,8 @@
                         <td>{{ servicesInfo.vehicleProblem }}</td>
                         <td>{{ servicesInfo.repairDate | date ('d M Y') }}</td>
                         <td>{{ servicesInfo.updatedAt | date ('d M Y') }}</td>
-                        <td>Edit|Delete</td>
+                        <td><a href="#" class="btn btn-primary"><span><i class="fa fa-pencil" aria-hidden="true"></i></span></a></td>
+                        <td><a href="#" class="btn btn-danger"><span><i class="fa fa-trash" aria-hidden="true"></i></span></a></td>
                     </tr>
                     {% endfor %}
                     </tbody>

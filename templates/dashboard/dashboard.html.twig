@@ -10,7 +10,7 @@
             <div class="col-md-4">
                 <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                     <div>
-                        <h3 class="fs-2">110</h3>
+                        <h3 class="fs-2">{{ totalVehicle }}</h3>
                         <p class="fs-5">Total Vehicles</p>
                     </div>
                     <i class="fas fa-car fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -20,7 +20,7 @@
             <div class="col-md-4">
                 <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                     <div>
-                        <h3 class="fs-2">100</h3>
+                        <h3 class="fs-2">{{ totalCustomer }}</h3>
                         <p class="fs-5">Total Customers</p>
                     </div>
                     <i class="fa-solid fa-users fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -45,7 +45,8 @@
                         <th scope="col">Vehicle Problem</th>
                         <th scope="col">Repair Date</th>
                         <th scope="col">Updated Date</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -62,7 +63,8 @@
                             <td>{{ servicesInfo.vehicleProblem }}</td>
                             <td>{{ servicesInfo.repairDate | date ('d M Y') }}</td>
                             <td>{{ servicesInfo.updatedAt | date ('d M Y') }}</td>
-                            <td>Edit|Delete</td>
+                            <td><a href="#" class="btn btn-primary"><span><i class="fa fa-pencil" aria-hidden="true"></i></span></a></td>
+                            <td><a href="#" class="btn btn-danger"><span><i class="fa fa-trash" aria-hidden="true"></i></span></a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
