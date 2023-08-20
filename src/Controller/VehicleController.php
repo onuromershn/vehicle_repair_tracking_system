@@ -82,4 +82,52 @@ class VehicleController extends AbstractController
         ]);
     }
 
+    /**
+     * @param VehicleService $vehicleService
+     * @param Request $request
+     * @param $id
+     * @param EntityManagerInterface $entityManager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @throws \Exception
+     */
+    #[Route('/vehicle/edit/{id}', name: 'app_vehicle_edit')]
+    public function edit(VehicleService $vehicleService, $id, Request $request, EntityManagerInterface $entityManager )
+    {
+        $customer = $entityManager->getRepository(Customer::class)->find($id);
+        $serviceInfo = $entityManager->getRepository(ServiceInfo::class)->find($id);
+        if ($request->getMethod() === Request::METHOD_POST){
+            $brandName = $request->request->get('brandName');
+
+            
+            $customer->setFirstname($request->request->get('firstname'));
+            $customer->setSurname($request->request->get('lastname'));
+            $customer->setPhoneNumber($request->request->get('phoneNumber'));
+            $customer->setAddress($request->request->get('address'));
+            $customer->setUpdatedAt(new \DateTime());
+            $entityManager->persist($customer);
+
+            $serviceInfo->setStatus($request->request->get('status'));
+            $serviceInfo->setCustomer($customer);
+            $serviceInfo->setVehicleProblem($request->request->get('vehicleProblem'));
+            $serviceInfo->setVehicleBrand($brandName);
+            $serviceInfo->setVehicleModel($request->request->get('model'));
+            $serviceInfo->setExpert($request->request->get('expert'));
+            $serviceInfo->setRepairDate(new \DateTime($request->request->get('repairDate')));
+            $serviceInfo->setUpdatedAt(new \DateTime());
+            $entityManager->persist($serviceInfo);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_vehicles');
+        }
+
+
+        return $this->render('vehicle/edit.html.twig', [
+            'controller_name' => 'VehicleController',
+            'brands'=> json_decode($vehicleService->getVehicleBrands()->getContent()),
+            'experts'=> $vehicleService->experts(),
+            'vehicleStatus'=>$vehicleService->vehicleStatus(),
+            'vehicleInfo'=> $serviceInfo
+        ]);
+    }
+
 }

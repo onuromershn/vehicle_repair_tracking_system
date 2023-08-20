@@ -2,7 +2,7 @@
 
 {% block title %}Add Vehicle Repair{% endblock %}
 
-{% block menuTitle %}Add Vehicle Repair{% endblock %}
+{% block menuTitle %}Edit Vehicle Repair{% endblock %}
 
 {% block content %}
     <!-- Page Content -->
@@ -23,13 +23,13 @@
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="firstname">Customer First name</label>
-                            <input type="text" id="firstname" name="firstname" class="form-control" />
+                            <input type="text" id="firstname" name="firstname" value="{{ vehicleInfo.getCustomer.firstname }}" class="form-control" />
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="lastname">Customer Last name</label>
-                            <input type="text" id="lastname" name="lastname" class="form-control" />
+                            <input type="text" id="lastname" name="lastname" value="{{ vehicleInfo.getCustomer.surname }}" class="form-control" />
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                     <div class="col-md-6">
                         <div class="form-outline mb-4">
                             <label class="form-label" for="phoneNumber">Customer's Phone</label>
-                            <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" />
+                            <input type="tel" id="phoneNumber" name="phoneNumber" value="{{ vehicleInfo.getCustomer.phoneNumber }}" class="form-control" />
                         </div>
                     </div>
                     <!-- Tel input -->
@@ -47,6 +47,7 @@
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form6Example6">Status</label>
                             <select class="form-select" name="status" aria-label="Default select example">
+                                <option>{{ vehicleInfo.status }}</option>
                                 {% for status in vehicleStatus %}
                                     <option value="{{ status }}">{{ status }}</option>
                                 {% endfor %}
@@ -60,13 +61,13 @@
                 <!-- Text input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="address">Customer's Address</label>
-                    <input type="text" id="address" name="address" class="form-control" />
+                    <input type="text" id="address" name="address" value="{{ vehicleInfo.getCustomer.address }}" class="form-control" />
                 </div>
 
                 <!-- Message input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="vehicleProblem">Vehicle Problem</label>
-                    <textarea class="form-control" id="vehicleProblem"  name="vehicleProblem" rows="2"></textarea>
+                    <textarea class="form-control" id="vehicleProblem"  name="vehicleProblem" rows="2">{{ vehicleInfo.vehicleProblem }}</textarea>
                 </div>
 
                 <div class="row mb-4">
@@ -74,7 +75,7 @@
                         <div class="form-group">
                             <label for="form_need">Please Choose Brand</label>
                             <select id="car_brand" name="brand" class="form-control" required="required" data-error="Please specify your need.">
-                                <option value="0">Select your brand</option>
+                                <option>{{ vehicleInfo.vehicleBrand }}</option>
                                 {% for key,value in brands %}
                                     <option value="{{ value.id }}">{{ value.name }}</option>
                                 {% endfor %}
@@ -86,7 +87,7 @@
                         <div class="form-group">
                             <label for="form_need">Please Choose Model</label>
                             <select id="car_model" name="model" class="form-control" required="required" data-error="Please specify your need.">
-                                <option value="" disabled selected hidden>Please select the vehicle brand first</option>
+                                <option>{{ vehicleInfo.vehicleModel }}</option>
                             </select>
                         </div>
                     </div>
@@ -97,6 +98,7 @@
                         <div class="form-group">
                             <label for="form_need">Please Choose Expert</label>
                             <select id="form_need" name="expert" class="form-control" required="required" data-error="Please specify your need.">
+                                <option>{{ vehicleInfo.expert }}</option>
                                 {% for expert in experts %}
                                     <option value="{{ expert }}">{{ expert }}</option>
                                 {% endfor %}
@@ -106,7 +108,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="form_need">Repair Date</label>
-                            <input id="dateTimePicker" name="repairDate" class="form-control" />
+                            <input id="dateTimePicker" name="repairDate" value="{{ vehicleInfo.repairDate | date ('d M Y h:i') }}" class="form-control" />
                         </div>
                     </div>
                 </div>
