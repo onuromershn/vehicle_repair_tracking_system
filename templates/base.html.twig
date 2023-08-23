@@ -15,7 +15,6 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-
 <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
     <div class="bg-white" id="sidebar-wrapper">
@@ -35,7 +34,7 @@
                     </ul>
                 </li>
             </ul>
-            <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i class="fas fa-power-off me-2"></i>Logout</a>
+            <a href="{{ path('app_logout') }}" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i class="fas fa-power-off me-2"></i>Logout</a>
 
         </div>
     </div>
@@ -63,7 +62,7 @@
                             <i class="fas fa-user me-2"></i>Admin
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -92,6 +91,5 @@
         interval: 30
     });
 </script>
-
 </body>
 </html>
