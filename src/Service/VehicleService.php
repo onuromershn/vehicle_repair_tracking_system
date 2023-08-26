@@ -4,9 +4,16 @@ namespace App\Service;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use function Symfony\Component\Translation\t;
 
 class VehicleService
 {
+    private $apiKey;
+    public function __construct(string $apiKey)
+    {
+        $this->apiKey = $apiKey;
+    }
+
     /**
      * @return Response
      */
@@ -23,7 +30,7 @@ class VehicleService
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => [
                 "X-RapidAPI-Host: car-api2.p.rapidapi.com",
-                "X-RapidAPI-Key: a38f26dc45mshc9e4044ba3f8cfdp11d00bjsn429051572ba9"
+                "X-RapidAPI-Key:".$this->apiKey." "
             ],
         ]);
 
