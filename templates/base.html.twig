@@ -34,6 +34,19 @@
                     </ul>
                 </li>
             </ul>
+            {% if is_granted("ROLE_ADMIN") %}
+            <ul class="list-group-item list-group-item-action navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user me-2"></i>Users
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ path("app_users") }}">All Users</a></li>
+                        <li><a class="dropdown-item" href="{{ path("app_user_add") }}">Add User</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {% endif %}
             <a href="{{ path('app_logout') }}" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i class="fas fa-power-off me-2"></i>Logout</a>
 
         </div>

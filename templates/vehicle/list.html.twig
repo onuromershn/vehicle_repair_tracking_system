@@ -23,8 +23,10 @@
                         <th scope="col">Vehicle Problem</th>
                         <th scope="col">Repair Date</th>
                         <th scope="col">Updated Date</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        {% endif %}
                     </tr>
                     </thead>
                     <tbody>
@@ -41,8 +43,10 @@
                         <td>{{ servicesInfo.vehicleProblem }}</td>
                         <td>{{ servicesInfo.repairDate | date ('d M Y') }}</td>
                         <td>{{ servicesInfo.updatedAt | date ('d M Y') }}</td>
+                        {% if is_granted("ROLE_ADMIN") %}
                         <td><a href="{{ path('app_vehicle_edit', {id:servicesInfo.id}) }}" class="btn btn-primary"><span><i class="fa fa-pencil" aria-hidden="true"></i></span></a></td>
                         <td><a href="#" class="btn btn-danger"><span><i class="fa fa-trash" aria-hidden="true"></i></span></a></td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
                     </tbody>

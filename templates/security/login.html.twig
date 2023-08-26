@@ -35,17 +35,16 @@
 
                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
+
                                         <div class="form-outline mb-4">
-                                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-control-lg" autocomplete="email" required autofocus/>
                                             <label class="form-label" for="inputEmail">Email address</label>
+                                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-control-lg" autocomplete="email" required autofocus/>
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="password" name="password" id="inputPassword" class="form-control form-control-lg" autocomplete="current-password" required/>
                                             <label class="form-label" for="inputPassword">Password</label>
-                                            <input type="hidden" name="_csrf_token"
-                                                   value="{{ csrf_token('authenticate') }}"
-                                            >
+                                            <input type="password" name="password" id="inputPassword" class="form-control form-control-lg" autocomplete="current-password" required/>
+                                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                                         </div>
 
 
